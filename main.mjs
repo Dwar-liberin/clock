@@ -8,42 +8,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const start = async () => {
     const mindarThree = new MindARThree({
       container: document.body,
-      imageTargetSrc: "./assets/targets/ipl.mind",
+      imageTargetSrc: "./assets/targets/cromaVideo.mind",
     });
     const { renderer, scene, camera } = mindarThree;
 
     const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
 
     const { videoPlane, video } = await videoLoader({
-      path: "./assets/videos/iplVideo.mp4",
+      path: "https://static.dreemar.com/asset/video/a16ca1ae-0ca4-4fa6-b4af-f1b978750408",
     });
 
     // const { planeMesh } = await imageLoader({
     //   src: "./assets/logo/Button.png",
     // });
 
-    const iconGeometry = new THREE.PlaneGeometry(1.2, 0.4);
+    // const iconGeometry = new THREE.PlaneGeometry(1.2, 0.4);
 
-    const textureLoader = new THREE.TextureLoader();
+    // const textureLoader = new THREE.TextureLoader();
 
-    const iconTexture = textureLoader.load("./assets/logo/saveIconred.jpg");
+    // const iconTexture = textureLoader.load("./assets/logo/saveIconred.jpg");
 
-    const imageMesh = new THREE.MeshBasicMaterial({
-      map: iconTexture,
-    });
+    // const imageMesh = new THREE.MeshBasicMaterial({
+    //   map: iconTexture,
+    // });
 
-    const planeMesh = new THREE.Mesh(iconGeometry, imageMesh);
+    // const planeMesh = new THREE.Mesh(iconGeometry, imageMesh);
 
-    planeMesh.scale.set(0.5, 0.5, 0.5);
+    // planeMesh.scale.set(0.5, 0.5, 0.5);
 
     // console.log("Video", videoPlane);
 
-    videoPlane.position.set(0, -0.2, 0);
+    videoPlane.position.set(0, 0, 0);
+
+    videoPlane.scale.set(0.7, 0.8, 0.8);
+    videoPlane.rotation.set(0, 0, 0);
 
     videoPlane.userData.clickable = true; // set the user Data to clickable.
 
-    planeMesh.position.set(0, -0.9, 0);
-    planeMesh.userData.clickable = true;
+    // planeMesh.position.set(0, -0.9, 0);
+    // planeMesh.userData.clickable = true;
 
     // const raccoon = await loadGLTF(
     //   "./assets/models/musicband-raccoon/scene.gltf"
@@ -62,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     anchorVideo.group.add(videoPlane);
 
-    anchorVideo.group.add(planeMesh);
+    // anchorVideo.group.add(planeMesh);
 
     // planeMesh.userData.clickable = true;
 
@@ -95,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
           o = o.parent;
         }
 
-        if (o.userData.clickable && o === planeMesh) {
+        if (o.userData.clickable) {
           window.location.href = "https://dl.osunio.com/tbCg";
         }
       }
