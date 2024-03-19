@@ -96,8 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (o.userData.clickable && o === planeMesh) {
-          window.location.href =
-            "https://dl.osunio.com/?link=https://www.osunio.com&apn=com.osunio&isi=1616445132&ibi=com.osunio.osunioios";
+          window.location.href = "https://dl.osunio.com/tbCg";
         }
       }
     });
