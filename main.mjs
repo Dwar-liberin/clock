@@ -1,7 +1,6 @@
 import { MindARThree } from "mindar-image-three";
 import * as THREE from "three";
 import { videoLoader } from "./libs/videoLoader/videoLoader.js";
-import { loadTexture } from "./libs/loader.js";
 // import { imageLoader } from "./libs/imageLoader/imageLoader.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const { videoPlane, video } = await videoLoader({
       path: "https://static.dreemar.com/asset/video/a16ca1ae-0ca4-4fa6-b4af-f1b978750408",
     });
+
+    const isIOS =  navigator.appVersion.indexOf("Mac")!=-1  ? true : false
+    
+    video.muted = isIOS;
 
     // const { planeMesh } = await imageLoader({
     //   src: "./assets/logo/Button.png",
