@@ -7,18 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const start = async () => {
     const mindarThree = new MindARThree({
       container: document.body,
-      imageTargetSrc: "./assets/targets/cromaVideo.mind",
+      imageTargetSrc: "./assets/targets/clock.mind",
     });
     const { renderer, scene, camera } = mindarThree;
 
     const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
 
     const { videoPlane, video } = await videoLoader({
-      path: "https://static.dreemar.com/asset/video/a16ca1ae-0ca4-4fa6-b4af-f1b978750408",
+      path: "./assets/videos/clock.mp4",
     });
 
-    const isIOS =  navigator.appVersion.indexOf("Mac")!=-1  ? true : false
-    
+    const isIOS = navigator.appVersion.indexOf("Mac") != -1 ? true : false;
+
     video.muted = isIOS;
 
     // const { planeMesh } = await imageLoader({
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // console.log("Video", videoPlane);
 
-    videoPlane.position.set(0, 0, 0);
+    videoPlane.position.set(0, 0.1, 0);
 
     videoPlane.scale.set(0.7, 0.8, 0.8);
     videoPlane.rotation.set(0, 0, 0);

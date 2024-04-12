@@ -7,10 +7,10 @@ export function videoLoader({ path }) {
     const video = await loadVideo(path);
     const texture = new THREE.VideoTexture(video);
 
-    const geometry = new THREE.PlaneGeometry(1, 950 / 1000);
+    const geometry = new THREE.PlaneGeometry(0.8, 0.7);
     // const material = new THREE.MeshBasicMaterial({ map: texture });
 
-    const material = createChromaMaterial(texture, 0x00ff00);
+    const material = createChromaMaterial(texture, 0xff29ff);
 
     const videoPlane = new THREE.Mesh(geometry, material);
 
