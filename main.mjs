@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     videoPlane.position.set(0, 0.1, 0);
 
-    videoPlane.scale.set(0.7, 0.8, 0.8);
+    videoPlane.scale.set(0.654321, 0.77654321, 0.87654321);
     videoPlane.rotation.set(0, 0, 0);
 
     videoPlane.userData.clickable = true; // set the user Data to clickable.
