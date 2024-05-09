@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mindarThree = new MindARThree({
       container: document.body,
       imageTargetSrc: "./assets/targets/clock.mind",
+      uiLoading: "#scanning-overlay",
     });
     const { renderer, scene, camera } = mindarThree;
 
@@ -104,6 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (o.userData.clickable) {
           window.location.href = "https://dl.osunio.com/tbCg";
         }
+
+        if(o.userData.clickable) window.showLoadingScreen();
       }
     });
 
